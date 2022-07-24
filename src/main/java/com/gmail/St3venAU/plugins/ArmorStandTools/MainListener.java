@@ -62,6 +62,10 @@ public class MainListener implements Listener {
             event.setCancelled(true);
             return;
         }
+        if (Utils.isPetBlock(as)) {
+            event.setCancelled(true);
+            return;
+        }
         ArmorStandTool tool = ArmorStandTool.get(p);
         if(tool == null && p.isSneaking() && Config.crouchRightClickOpensGUI && Utils.hasPermissionNode(p, "astools.use")) {
             if (!AST.playerHasPermission(p, as.getLocation().getBlock(), null)) {

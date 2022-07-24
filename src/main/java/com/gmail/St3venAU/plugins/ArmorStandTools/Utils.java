@@ -1,5 +1,7 @@
 package com.gmail.st3venau.plugins.armorstandtools;
 
+import com.github.shynixn.petblocks.api.PetBlocksApi;
+import com.github.shynixn.petblocks.api.business.service.PetService;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -26,6 +28,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+
 
 class Utils {
 
@@ -456,6 +459,10 @@ class Utils {
         return clone;
     }
 
+    static boolean isPetBlock(ArmorStand as) {
+        PetService petService = PetBlocksApi.INSTANCE.resolve(PetService.class);
+        return petService.findPetByEntity(as) != null;
+    }
 
 
 }
